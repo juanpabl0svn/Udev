@@ -112,6 +112,7 @@
 
       $("#form").addEventListener("submit", (e) => {
         e.preventDefault();
+
         const todoInput = e.target["todo-input"].value;
         if (!todoInput) return;
         e.target.childNodes[3].insertAdjacentHTML(
@@ -124,6 +125,15 @@
     </div>
     `
         );
+
+        fetch("http://localhost:5000/add", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ label: todoInput, id: crypto.randomUUID() }),
+        });
+
         e.target["todo-input"].value = "";
       });
 
@@ -132,6 +142,28 @@
           e.target.parentNode.remove();
         }
       });
+    </script>
+
+    <script>
+      window.onload = async () => {
+        const req = await fetch("http://localhost:5000");
+
+        if (!req.ok) return;
+
+        const data = await req.json();
+
+        data.forEach((todo) => {
+          $("#todo-list").insertAdjacentHTML(
+            "beforeend",
+            `
+      <div class='item-todo-list'>
+        <label for="todo">${todo.label}</label>
+        <span class='remove-item-todo-list'>❌</span>
+      </div>
+      `
+          );
+        });
+      };
     </script>
   </body>
 </html>
