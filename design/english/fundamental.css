@@ -1,0 +1,32 @@
+
+/* Selectors */
+.class{
+
+} 
+
+#id{
+
+}
+
+/* Atributes in a HTML tag, normally used aria- or data- attributes */
+[attribute='value']{
+
+}
+
+/* (n, 2n+1, 3+n, etc) child of a parent element */
+:nth-child(n){
+
+}
+
+:first-child{}
+
+:last-child{}
+
+
+/* Manage content from a parent element */
+
+/* display: grid and flex */
+
+/* Manage content by the element */
+
+/* position: absolute, relative, fixed, sticky */
