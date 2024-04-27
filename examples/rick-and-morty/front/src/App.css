@@ -1,0 +1,39 @@
+main {
+  width: 100%;
+  min-height: 90dvh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  & > section {
+    width: 76.5%;
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    gap: 10px;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: #747bff #242424;
+  }
+}
+
+button {
+  width: 40px;
+  aspect-ratio: 1/1;
+  position: absolute;
+  cursor: pointer;
+  font: bold 1.5em sans-serif;
+}
+
+.plus {
+  top: 50%;
+  right: 20px;
+}
+
+.minus {
+  top: 50%;
+  left: 20px;
+}
